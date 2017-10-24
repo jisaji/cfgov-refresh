@@ -42,6 +42,8 @@ module.exports = {
     reporter: process.env.CONTINUOUS_INTEGRATION // eslint-disable-line no-process-env
   },
   clean: {
+    css: paths.processed + '/css',
+    js: paths.processed + '/js',
     dest: paths.processed
   },
   scripts: {
