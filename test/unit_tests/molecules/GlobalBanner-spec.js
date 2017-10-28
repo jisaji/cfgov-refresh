@@ -64,12 +64,11 @@ describe( 'Global Banner State', () => {
 
   beforeEach( () => {
     this.jsdom = require( 'jsdom-global' )( HTML_SNIPPET );
-    document = window.document;
     contentDom = document.querySelector( '.o-expandable_content' );
     contentAnimatedDom =
       document.querySelector( '.o-expandable_content-animated' );
     // TODO: remove the need for the line below as this is a read-only property.
-    //contentAnimatedDom.offsetHeight = 300;
+    // contentAnimatedDom.offsetHeight = 300;
     targetDom = document.querySelector( '.o-expandable_target' );
 
     clickEvent = document.createEvent( 'Event' );
@@ -102,14 +101,14 @@ describe( 'Global Banner State', () => {
       globalBanner.init();
       targetDom.dispatchEvent( clickEvent );
 
-      return new Promise((resolve, reject) => window.setTimeout( function() {
+      return new Promise( ( resolve, reject ) => window.setTimeout( function() {
         try {
           expect( toggleStoredStateSpy.called ).to.be.true;
           resolve();
-        } catch( err ) {
+        } catch ( err ) {
           reject( err );
         }
-      }, 0));
+      }, 0 ) );
     } );
   } );
 
@@ -146,14 +145,14 @@ describe( 'Global Banner State', () => {
 
       targetDom.dispatchEvent( clickEvent );
 
-      return new Promise((resolve, reject) => window.setTimeout( () => {
+      return new Promise( ( resolve, reject ) => window.setTimeout( () => {
         try {
           expect( toggleStoredStateSpy.called ).to.be.false;
           resolve();
-        } catch( err ) {
+        } catch ( err ) {
           reject( err );
         }
-      }, 0));
+      }, 0 ) );
     } );
   } );
 
